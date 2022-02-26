@@ -11,39 +11,52 @@ let op
 
 function choose(chosen){
    let value = chosen
-    if(value !=='equal' && value!=='plus' && value !== 'subtract'){
+    if(value !=='equal' && value!=='plus' && value !== 'subtract' && value !== 'multiply' && value !== 'divide' && value !=='clear'){
     let value = chosen 
     emptyArray.push(value)
     let joinedArray = emptyArray.join('')
     convert = Number(joinedArray)
     screen.textContent= joinedArray
     console.log(convert)
-    }else if(value === 'plus' || value === 'subtract'){
+    }else if(value === 'plus' || value === 'subtract' || value === 'multiply' || value === 'divide' ){
         op = value
         num1 = convert
         emptyArray = []
+        console.log(op)
     }else if(value === 'equal'){
-        num2 = convert
-        if(op === 'plus'){
-        answer = determineOp(op)
-        console.log(answer)
-        screen.textContent = answer
-        return answer 
-        }else if (op === 'subtract'){
-            answer = subtract(num1,num2)
-            screen.textContent = answer
-            return answer 
-        }
+         emptyArray = []
+         num2 = convert
+         answer = determineOp(op)
+         screen.textContent = answer
+         console.log(answer)
+         num1 = 0
+         num2 = 0
+         convert = 0
+    }else if(value === 'clear'){
+        emptyArray = []
+        num1 = 0
+        num2 = 0 
+        convert = 0
+        screen.textContent = 0
     }
 }; 
 
 function determineOp(value){
     switch(value){
         case 'plus':
-            add(num1,num2)
-        return
+            answer = add(num1,num2);
+        return answer;
+        case 'subtract':
+             answer = subtract(num1,num2);
+        return answer;
+        case 'multiply':
+             answer = multiply(num1,num2);
+        return answer;
+        case 'divide':
+             answer = divide(num1,num2);
+        return answer;
     }
-}
+};
 
 
 const add = function(number1,number2){

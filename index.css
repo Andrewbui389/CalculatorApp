@@ -7,6 +7,7 @@ button{
     width: 45px;
     height: 30pxpx;
     margin: 5px;
+    text-align: center;
 }
 .calcBody,
 .screen,
@@ -53,4 +54,8 @@ button{
     flex-direction: column;
     align-items: stretch;
     margin: auto;
+}
+
+.numbers{
+    font-family:'Orbitron', sans-serif;;
 }
