@@ -8,11 +8,10 @@ let convert
 let answer 
 let op
 
-
+console.time("Loop")
 function choose(chosen){
    let value = chosen
     if(value !=='equal' && value!=='plus' && value !== 'subtract' && value !== 'multiply' && value !== 'divide' && value !=='clear'){
-    let value = chosen 
     emptyArray.push(value)
     let joinedArray = emptyArray.join('')
     convert = Number(joinedArray)
@@ -40,6 +39,7 @@ function choose(chosen){
         screen.textContent = 0
     }
 }; 
+console.timeEnd("Loop")
 
 function determineOp(value){
     switch(value){
